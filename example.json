@@ -2,7 +2,7 @@
 "_navigationTitle": {
     "_isEnabled": true,
     "title": "Title",
-    "_hideTitleForMobile": true
+    "_hideForMobile": true
 }
 
 "_globals": {

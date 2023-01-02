@@ -1,0 +1,42 @@
+{
+  "$anchor": "_navigationTitle-course",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "$patch": {
+    "source": {
+      "$ref": "course"
+    },
+    "with": {
+      "properties": {
+        "_navigationTitle": {
+          "type": "object",
+          "title": "Navigation Title",
+          "default": {},
+          "properties": {
+            "_isEnabled": {
+              "type": "boolean",
+              "title": "Enable Navigation Title",
+              "description": "Set to true to enable the 'Navigation Title' feature.",
+              "default": false
+            },
+            "_hideForMobile": {
+              "type": "boolean",
+              "title": "Hide title for mobile view",
+              "description": "Useful to declutter the navigation bar for mobile view where limited space is available.",
+              "default": false
+            },
+            "title": {
+              "type": "string",
+              "title": "Title",
+              "description": "The text that appears in the navigation bar",
+              "default": "",
+              "_adapt": {
+                "translatable": true
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
