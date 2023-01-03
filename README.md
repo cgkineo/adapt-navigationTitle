@@ -1,5 +1,9 @@
 # adapt-navigationTitle
 
+<img src='https://user-images.githubusercontent.com/898168/210412291-435ee13b-3d5c-4495-9892-c17a3ce42563.jpg' width="500" alt="Screenshot">
+
+<br>
+
 **Navigation Title** is an *extension* for displaying a title in the course navigation bar. The title can be hidden for mobile view.
 
 ### Attributes
