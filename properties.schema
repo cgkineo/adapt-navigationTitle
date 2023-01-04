@@ -3,6 +3,23 @@
   "$schema": "http://json-schema.org/draft-04/schema",
   "id": "http://jsonschema.net",
   "required":false,
+  "globals": {
+    "navigationTitle": {
+      "type": "string",
+      "required": true,
+      "default": "Page sections",
+      "inputType": "Text",
+      "validators": [],
+      "translatable": true
+    },
+    "_navOrder": {
+      "type": "number",
+      "required": true,
+      "default": 0,
+      "inputType": "Text",
+      "validators": []
+    }
+  },
   "properties": {
     "pluginLocations": {
       "type": "object",
