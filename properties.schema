@@ -4,14 +4,6 @@
   "id": "http://jsonschema.net",
   "required":false,
   "globals": {
-    "navigationTitle": {
-      "type": "string",
-      "required": true,
-      "default": "Page sections",
-      "inputType": "Text",
-      "validators": [],
-      "translatable": true
-    },
     "_navOrder": {
       "type": "number",
       "required": true,
