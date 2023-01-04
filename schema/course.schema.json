@@ -15,14 +15,12 @@
             "_navigationTitle": {
               "type": "object",
               "default": {},
-              "required": ["_navOrder"],
               "properties": {
                 "_navOrder": {
                   "type": "number",
-                  "title": "Navigation bar order",
+                  "title": "Nav order",
                   "default": 0,
-                  "inputType": "Text",
-                  "validators": []
+                  "_backboneForms": "Text"
                 }
               }
             }
