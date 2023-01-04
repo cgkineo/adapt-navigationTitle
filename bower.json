@@ -5,7 +5,7 @@
   "homepage": "https://github.com/cgkineo/adapt-navigationTitle",
   "displayName" : "Navigation Title",
   "extension" : "navigationTitle",
-  "description": "Navigation Title",
+  "description": "An extension for displaying a title in the course navigation bar",
   "main": "/js/adapt-navigationTitle.js",
   "keywords": [
     "adapt-plugin",
