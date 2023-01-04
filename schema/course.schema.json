@@ -17,14 +17,6 @@
               "default": {},
               "required": ["_navOrder"],
               "properties": {
-                "navigationTitle": {
-                  "type": "string",
-                  "title": "Navigation Title",
-                  "default": "Page sections",
-                  "_adapt": {
-                    "translatable": true
-                  }
-                },
                 "_navOrder": {
                   "type": "number",
                   "title": "Navigation bar order",
