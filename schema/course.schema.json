@@ -8,6 +8,34 @@
     },
     "with": {
       "properties": {
+        "_globals": {
+          "type": "object",
+          "default": {},
+          "properties": {
+            "_navigationTitle": {
+              "type": "object",
+              "default": {},
+              "required": ["_navOrder"],
+              "properties": {
+                "navigationTitle": {
+                  "type": "string",
+                  "title": "Navigation Title",
+                  "default": "Page sections",
+                  "_adapt": {
+                    "translatable": true
+                  }
+                },
+                "_navOrder": {
+                  "type": "number",
+                  "title": "Navigation bar order",
+                  "default": 0,
+                  "inputType": "Text",
+                  "validators": []
+                }
+              }
+            }
+          }
+        },
         "_navigationTitle": {
           "type": "object",
           "title": "Navigation Title",
