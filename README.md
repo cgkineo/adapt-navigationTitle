@@ -14,6 +14,8 @@ The following attributes are set within *course.json*.
 
 >**\_hideForMobile** (boolean): Optional, hide title for mobile view. Useful to declutter the navigation bar for mobile view where limited space is available.
 
+>**\_useCourseTitle** (boolean): Optional, use the course title as the navigation title. Will override anything in the `title` property of the `_navigationTitle` object.
+
 >**title** (string): The title text to display.
 
 ## Limitations

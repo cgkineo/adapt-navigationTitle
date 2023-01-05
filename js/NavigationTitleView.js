@@ -17,6 +17,7 @@ class NavigationTitleView extends Backbone.View {
 
   initialize() {
     this.listenTo(Adapt, 'device:changed', this.changed);
+    this.setTitle();
     this.render();
   }
 
@@ -29,6 +30,13 @@ class NavigationTitleView extends Backbone.View {
     this.hideForMobile();
 
     ReactDOM.render(<templates.navigationTitle {...this.model.toJSON()} />, this.el);
+  }
+
+  setTitle() {
+    if (!this.model.get('_useCourseTitle')) return;
+
+    // Use course title from course.json
+    this.model.set('title', Adapt.course.get('title'));
   }
 
   setIsDeviceSmall() {

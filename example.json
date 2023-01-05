@@ -2,7 +2,8 @@
 "_navigationTitle": {
     "_isEnabled": true,
     "title": "Title",
-    "_hideForMobile": true
+    "_hideForMobile": true,
+    "_useCourseTitle": false
 }
 
 "_globals": {
@@ -11,10 +12,4 @@
             "_navOrder": 2
         }
     }
-}
-
-// course.json -  if you want to use the course displayTitle
-"_navigationTitle": {
-    "_isEnabled": true,
-    "title": "{{{Adapt.[course].displayTitle}}}"
 }

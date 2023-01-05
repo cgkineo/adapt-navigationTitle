@@ -43,6 +43,12 @@
               "description": "Useful to declutter the navigation bar for mobile view where limited space is available.",
               "default": false
             },
+            "_useCourseTitle": {
+              "type": "boolean",
+              "title": "Use course title",
+              "description": "Use the course's title. Will override anything in the 'title' field.",
+              "default": false
+            },
             "title": {
               "type": "string",
               "title": "Title",
