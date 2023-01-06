@@ -19,8 +19,8 @@
                 "_navOrder": {
                   "type": "number",
                   "title": "Nav order",
-                  "default": 0,
-                  "_backboneForms": "Text"
+                  "description": "",
+                  "default": 0
                 }
               }
             }
