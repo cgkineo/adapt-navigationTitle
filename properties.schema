@@ -7,8 +7,10 @@
     "_navOrder": {
       "type": "number",
       "required": true,
+      "title": "Navigation bar order",
       "default": 0,
       "inputType": "Text",
+      "help": "The order in which the title should appear in the navigation bar. Lower numbers (ex. 0) position the title further to the left while higher numbers (ex. 100) do the opposite.",
       "validators": []
     }
   },
