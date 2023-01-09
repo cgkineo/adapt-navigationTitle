@@ -7,9 +7,7 @@ export default function NavigationTitle(props) {
 
   return (
 
-    <div className='navigation-title__inner'>
-      {title}
-    </div>
+    <div className='navigation-title__inner' dangerouslySetInnerHTML={{ __html: title }} />
 
   );
 }
