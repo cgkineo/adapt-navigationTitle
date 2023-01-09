@@ -13,13 +13,13 @@
 The following attributes are set within *course.json*.
 
 ### **\_navigationTitle** (object):
-The Navigation Title target attribute object.
+The object that defines the content to render. It contains the following settings:
 
 ### **\_isEnabled** (boolean):
-Controls whether the Navigation Title course object is enabled or not.
+Turns on and off the **Navigation Title** extension.
 
 ### **\_hideForMobile** (boolean):
-Optional, hide title for mobile view. Useful to declutter the navigation bar for mobile view where limited space is available.
+Optional, hide the title for mobile view. Useful to declutter the navigation bar where limited space is available.
 
 ### **\_useCourseTitle** (boolean):
 Optional, use the course title as the navigation title. Will override anything in the `title` property of the `_navigationTitle` object.
