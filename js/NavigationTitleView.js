@@ -37,6 +37,10 @@ class NavigationTitleView extends Backbone.View {
 
     // Use course title from course.json
     this.model.set('title', Adapt.course.get('title'));
+
+    // The course title is already announced on course load as site <title>.
+    // Hide from screenreaders to avoid repetition.
+    this.$el.attr('aria-hidden', 'true');
   }
 
   setIsDeviceSmall() {
