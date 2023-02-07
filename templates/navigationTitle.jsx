@@ -12,6 +12,7 @@ export default function NavigationTitle(props) {
       className='navigation-title__inner'
       dangerouslySetInnerHTML={{ __html: title }}
       aria-level={!_useCourseTitle ? 1 : null}
+      role='heading'
     />
 
   );
