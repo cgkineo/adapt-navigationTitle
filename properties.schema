@@ -3,6 +3,17 @@
   "$schema": "http://json-schema.org/draft-04/schema",
   "id": "http://jsonschema.net",
   "required":false,
+  "globals": {
+    "_navOrder": {
+      "type": "number",
+      "required": true,
+      "title": "Navigation bar order",
+      "default": 0,
+      "inputType": "Text",
+      "help": "Determines the order in which the object is displayed in the navigation bar. Negative numbers (e.g. -100) are left-aligned. Positive numbers (e.g. 100) are right-aligned.",
+      "validators": []
+    }
+  },
   "properties": {
     "pluginLocations": {
       "type": "object",
@@ -19,10 +30,29 @@
                 "_isEnabled": {
                   "type": "boolean",
                   "required": false,
+                  "default": false,
                   "title": "Enable Navigation Title",
                   "inputType": "Checkbox",
                   "validators": [],
                   "help": "Set to true to enable the 'Navigation Title' feature."
+                },
+                "_hideForMobile": {
+                  "type": "boolean",
+                  "required": false,
+                  "default": false,
+                  "title": "Hide title for mobile view",
+                  "inputType": "Checkbox",
+                  "validators": [],
+                  "help": "Useful to declutter the navigation bar for mobile view where limited space is available."
+                },
+                "_useCourseTitle": {
+                  "type": "boolean",
+                  "required": false,
+                  "default": false,
+                  "title": "Use course title",
+                  "inputType": "Checkbox",
+                  "validators": [],
+                  "help": "Use the course's title. Will override anything in the 'title' field."
                 },
                 "title": {
                   "type": "string",

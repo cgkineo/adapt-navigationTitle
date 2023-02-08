@@ -1,0 +1,68 @@
+{
+  "$anchor": "navigationTitle-course",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "$patch": {
+    "source": {
+      "$ref": "course"
+    },
+    "with": {
+      "properties": {
+        "_globals": {
+          "type": "object",
+          "default": {},
+          "properties": {
+            "_navigationTitle": {
+              "type": "object",
+              "title": "Navigation Title",
+              "default": {},
+              "properties": {
+                "_navOrder": {
+                  "type": "number",
+                  "title": "Navigation bar order",
+                  "description": "Determines the order in which the object is displayed in the navigation bar. Negative numbers (e.g. -100) are left-aligned. Positive numbers (e.g. 100) are right-aligned.",
+                  "default": 0,
+                  "_backboneForms": "Number"
+                }
+              }
+            }
+          }
+        },
+        "_navigationTitle": {
+          "type": "object",
+          "title": "Navigation Title",
+          "default": {},
+          "properties": {
+            "_isEnabled": {
+              "type": "boolean",
+              "title": "Enable Navigation Title",
+              "description": "Enable or disable the 'Navigation Title' feature",
+              "default": false
+            },
+            "_hideForMobile": {
+              "type": "boolean",
+              "title": "Hide title for mobile view",
+              "description": "Useful to declutter the navigation bar for mobile view where limited space is available",
+              "default": false
+            },
+            "_useCourseTitle": {
+              "type": "boolean",
+              "title": "Use course title",
+              "description": "Use the course's title. Will override anything in the 'title' field.",
+              "default": false
+            },
+            "title": {
+              "type": "string",
+              "title": "Title",
+              "description": "The text that appears in the navigation bar",
+              "default": "",
+              "_adapt": {
+                "translatable": true
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

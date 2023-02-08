@@ -1,11 +1,12 @@
 {
   "name": "adapt-navigationTitle",
   "version": "1.0.0",
-  "framework": ">=5",
+  "framework": ">=5.0.0",
   "homepage": "https://github.com/cgkineo/adapt-navigationTitle",
-  "displayName": "Navigation Title",
-  "extension": "navigationTitle",
-  "description": "Navigation Title",
+  "bugs": "https://github.com/cgkineo/adapt-navigationTitle/issues",
+  "extension" : "navigationTitle",
+  "displayName" : "Navigation Title",
+  "description": "An extension for displaying a title in the course navigation bar",
   "main": "/js/adapt-navigationTitle.js",
   "keywords": [
     "adapt-plugin",

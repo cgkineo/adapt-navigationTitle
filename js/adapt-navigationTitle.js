@@ -1,37 +1,28 @@
-define([
-  'core/js/adapt',
-  './TitleView'
-],function(Adapt, TitleView) {
+import Adapt from 'core/js/adapt';
+import NavigationTitleView from './NavigationTitleView';
 
-  var NavigationTitle = Backbone.Controller.extend({
+class NavigationTitle extends Backbone.Controller {
 
-    initialize: function() {
-      this.listenTo(Adapt, "adapt:initialize", this.onDataReady);
-    },
+  initialize() {
+    this.listenTo(Adapt, 'adapt:initialize', this.onDataReady);
+  }
 
-    onDataReady: function() {
-      if (this.titleView) this.titleView.remove();
+  onDataReady() {
+    const config = Adapt.course.get('_navigationTitle');
+    if (!config || !config._isEnabled) return;
 
-      var config = Adapt.course.get("_navigationTitle");
-      if (!config || !config._isEnabled) return;
+    this.titleView = new NavigationTitleView({
+      model: new Backbone.Model(config)
+    });
 
-      this.titleView = new TitleView({
-        model: new Backbone.Model(config)
-      });
+    // If 'navigation logo' is present in the navigation, insert title after it.
+    // Otherwise, insert after 'back' button.
+    const $navLogo = $('.navigation-logo');
+    const $backBtn = $('.js-nav-back-btn');
+    const $insertAfter = $navLogo.length > 0 ? $navLogo : $backBtn;
 
-      // if 'navigation logo' is present in the navigation, insert after
-      var $navLogo = $('.navigation-logo');
-      if ($navLogo.length > 0) {
-        this.titleView.$el.insertAfter($navLogo);
-        return;
-      }
-      // otherwise just insert after back button
-      var $backBtn = ".js-nav-back-btn";
-      this.titleView.$el.insertAfter($backBtn);
-    }
+    this.titleView.$el.insertAfter($insertAfter);
+  }
+};
 
-  });
-
-  return new NavigationTitle();
-
-});
+export default new NavigationTitle();
