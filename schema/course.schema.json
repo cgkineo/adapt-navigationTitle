@@ -43,7 +43,7 @@
               "type": "boolean",
               "title": "Enable Navigation Title",
               "description": "Enable or disable the 'Navigation Title' feature",
-              "default": false
+              "default": true
             },
             "_hideForMobile": {
               "type": "boolean",
