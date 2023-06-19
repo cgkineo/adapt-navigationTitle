@@ -12,17 +12,23 @@
           "type": "object",
           "default": {},
           "properties": {
-            "_navigationTitle": {
+            "_extensions": {
               "type": "object",
-              "title": "Navigation Title",
               "default": {},
               "properties": {
-                "_navOrder": {
-                  "type": "number",
-                  "title": "Navigation bar order",
-                  "description": "Determines the order in which the object is displayed in the navigation bar. Negative numbers (e.g. -100) are left-aligned. Positive numbers (e.g. 100) are right-aligned.",
-                  "default": 0,
-                  "_backboneForms": "Number"
+                "_navigationTitle": {
+                  "type": "object",
+                  "title": "Navigation Title",
+                  "default": {},
+                  "properties": {
+                    "_navOrder": {
+                      "type": "number",
+                      "title": "Navigation bar order",
+                      "description": "Determines the order in which the object is displayed in the navigation bar. Negative numbers (e.g. -100) are left-aligned. Positive numbers (e.g. 100) are right-aligned.",
+                      "default": 0,
+                      "_backboneForms": "Number"
+                    }
+                  }
                 }
               }
             }
@@ -37,7 +43,7 @@
               "type": "boolean",
               "title": "Enable Navigation Title",
               "description": "Enable or disable the 'Navigation Title' feature",
-              "default": false
+              "default": true
             },
             "_hideForMobile": {
               "type": "boolean",
