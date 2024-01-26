@@ -1,15 +1,22 @@
 // course.json
-"_navigationTitle": {
-    "_isEnabled": true,
-    "title": "Title",
-    "_hideForMobile": true,
-    "_useCourseTitle": false
-}
-
 "_globals": {
     "_extensions": {
         "_navigationTitle": {
             "_navOrder": 2
         }
     }
+}
+
+// course.json
+"_navigationTitle": {
+    "_isEnabled": true,
+    "title": "Title",
+    "_isHiddenOnMenu": false,
+    "_hideForMobile": true,
+    "_useCourseTitle": false
+}
+
+// contentObjects.json - Disable for this page
+"_navigationTitle": {
+    "_isEnabled": false
 }

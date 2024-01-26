@@ -4,16 +4,26 @@ import NavigationTitleView from './NavigationTitleView';
 class NavigationTitle extends Backbone.Controller {
 
   initialize() {
-    this.listenTo(Adapt, 'adapt:initialize', this.onDataReady);
+    this.listenTo(Adapt, {
+      'menuView:postRender pageView:postRender': this.onPostRender
+    });
   }
 
-  onDataReady() {
-    const config = Adapt.course.get('_navigationTitle');
-    if (!config || !config._isEnabled) return;
+  static get courseConfig() {
+    return Adapt.course.get('_navigationTitle');
+  }
 
-    this.titleView = new NavigationTitleView({
-      model: new Backbone.Model(config)
-    });
+  onPostRender(view) {
+    if (this.titleView) this.titleView.remove();
+
+    const config = view.model.get('_navigationTitle');
+    if (
+      (!NavigationTitle.courseConfig || !NavigationTitle.courseConfig._isEnabled) ||
+      (config && (!config._isEnabled || config._isHiddenOnMenu))
+    ) return;
+
+    const model = new Backbone.Model(config);
+    this.titleView = new NavigationTitleView({ model });
 
     // If 'navigation logo' is present in the navigation, insert title after it.
     // Otherwise, insert after 'back' button.

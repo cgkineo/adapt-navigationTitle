@@ -36,6 +36,15 @@
                   "validators": [],
                   "help": "Set to true to enable the 'Navigation Title' feature."
                 },
+                "_isHiddenOnMenu": {
+                  "type": "boolean",
+                  "required": false,
+                  "default": false,
+                  "title": "Hide the nav title on the menu",
+                  "inputType": "Checkbox",
+                  "validators": [],
+                  "help": ""
+                },
                 "_hideForMobile": {
                   "type": "boolean",
                   "required": false,
@@ -62,6 +71,27 @@
                   "validators": [],
                   "help": "The text that appears in the navigation bar",
                   "translatable": true
+                }
+              }
+            }
+          }
+        },
+        "contentobject": {
+          "type": "object",
+          "properties": {
+            "_navigationTitle": {
+              "type": "object",
+              "required": false,
+              "legend": "Navigation Title",
+              "properties": {
+                "_isEnabled": {
+                  "type": "boolean",
+                  "required": false,
+                  "default": true,
+                  "title": "Show nav title on this page / sub menu",
+                  "inputType": "Checkbox",
+                  "validators": [],
+                  "help": ""
                 }
               }
             }
