@@ -39,7 +39,6 @@ The object that defines the content to render. It contains the following setting
 When `false`, hides the title on a specific page or sub menu. Default: `true`
 
 ----------------------------
-**Framework versions:**  5.24.4+<br>
 **Author / maintainer:** CGKineo<br>
 **Accessibility support:** WAI AA<br>
 **RTL support:** Yes<br>
