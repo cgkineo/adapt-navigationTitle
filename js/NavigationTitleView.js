@@ -40,7 +40,6 @@ class NavigationTitleView extends Backbone.View {
   setTitle() {
     // Course config
     const courseConfig = Adapt.course.get('_navigationTitle');
-    // if (!courseConfig?.title || !courseConfig?._useCourseTitle) return;
 
     if (!courseConfig?._useCourseTitle) {
       this.model.set('title', courseConfig.title);
@@ -56,7 +55,9 @@ class NavigationTitleView extends Backbone.View {
 
   hideForMobile() {
     const _isDeviceSmall = this.model.get('_isDeviceSmall');
-    const _hideForMobile = this.model.get('_hideForMobile');
+
+    const courseConfig = Adapt.course.get('_navigationTitle');
+    const _hideForMobile = courseConfig._hideForMobile;
 
     if (_isDeviceSmall && _hideForMobile) {
       this.$el.addClass('u-display-none');
