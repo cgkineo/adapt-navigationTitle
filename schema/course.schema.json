@@ -45,6 +45,11 @@
               "description": "Enable or disable the 'Navigation Title' feature",
               "default": true
             },
+            "_isHiddenOnMenu": {
+              "type": "boolean",
+              "title": "Hide the nav title on the menu",
+              "default": false
+            },
             "_hideForMobile": {
               "type": "boolean",
               "title": "Hide title for mobile view",

@@ -5,6 +5,7 @@ import ReactDOM from 'react-dom';
 import { templates } from 'core/js/reactHelpers';
 
 class NavigationTitleView extends Backbone.View {
+
   className() {
     return 'navigation-title';
   }
@@ -17,7 +18,6 @@ class NavigationTitleView extends Backbone.View {
 
   initialize() {
     this.listenTo(Adapt, 'device:changed', this.changed);
-    this.setTitle();
     this.render();
   }
 
@@ -27,29 +27,37 @@ class NavigationTitleView extends Backbone.View {
 
   changed() {
     this.setIsDeviceSmall();
+    this.setTitle();
     this.hideForMobile();
 
     ReactDOM.render(<templates.navigationTitle {...this.model.toJSON()} />, this.el);
-  }
-
-  setTitle() {
-    if (!this.model.get('_useCourseTitle')) return;
-
-    // Use course title from course.json
-    this.model.set('title', Adapt.course.get('title'));
-
-    // The course title is already announced on course load as site <title>.
-    // Hide from screenreaders to avoid repetition.
-    this.$el.attr('aria-hidden', 'true');
   }
 
   setIsDeviceSmall() {
     this.model.set('_isDeviceSmall', device.screenSize === 'small');
   }
 
+  setTitle() {
+    // Course config
+    const courseConfig = Adapt.course.get('_navigationTitle');
+
+    if (!courseConfig?._useCourseTitle) {
+      this.model.set('title', courseConfig.title);
+    } else {
+      // Use course title from course.json
+      this.model.set('title', Adapt.course.get('title'));
+
+      // The course title is already announced on course load as site <title>.
+      // Hide from screenreaders to avoid repetition.
+      this.$el.attr('aria-hidden', 'true');
+    }
+  }
+
   hideForMobile() {
     const _isDeviceSmall = this.model.get('_isDeviceSmall');
-    const _hideForMobile = this.model.get('_hideForMobile');
+
+    const courseConfig = Adapt.course.get('_navigationTitle');
+    const _hideForMobile = courseConfig._hideForMobile;
 
     if (_isDeviceSmall && _hideForMobile) {
       this.$el.addClass('u-display-none');
