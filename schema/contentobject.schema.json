@@ -8,7 +8,7 @@
     },
     "with": {
       "properties": {
-        "_navigationLogo": {
+        "_navigationTitle": {
           "type": "object",
           "title": "Navigation Title",
           "default": {},

@@ -1,19 +1,27 @@
 import React from 'react';
+import device from 'core/js/device';
 
 export default function NavigationTitle(props) {
   const {
-    title,
-    _useCourseTitle
+    _hideForMobile,
+    _useCourseTitle,
+    title
   } = props;
 
-  return (
+  const isVisible = !(_hideForMobile && !device.isScreenSizeMin('medium'));
 
-    <div
-      className='navigation-title__inner'
-      dangerouslySetInnerHTML={{ __html: title }}
-      aria-level={!_useCourseTitle ? 1 : null}
-      role='heading'
-    />
+  return (
+    <>
+      {isVisible &&
+      <div
+        className='navigation-title__inner'
+        dangerouslySetInnerHTML={{ __html: title }}
+        aria-level={!_useCourseTitle ? 1 : null}
+        aria-hidden={_useCourseTitle ? true : null}
+        role='heading'
+      />
+      }
+    </>
 
   );
 }

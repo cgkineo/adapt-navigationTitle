@@ -2,7 +2,7 @@
 "_globals": {
     "_extensions": {
         "_navigationTitle": {
-            "_navOrder": 2
+            "_navOrder": 0
         }
     }
 }
@@ -10,10 +10,10 @@
 // course.json
 "_navigationTitle": {
     "_isEnabled": true,
-    "title": "Title",
     "_isHiddenOnMenu": false,
     "_hideForMobile": true,
-    "_useCourseTitle": false
+    "_useCourseTitle": false,
+    "title": "Title"
 }
 
 // contentObjects.json - Disable for this page
