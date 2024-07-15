@@ -5,7 +5,7 @@ class NavigationTitle extends Backbone.Controller {
 
   initialize() {
     this.listenTo(Adapt, {
-      'menuView:postRender pageView:postRender': this.onPostRender
+      'contentObjectView:postRender': this.onContentObjectPostRender
     });
   }
 
@@ -18,12 +18,12 @@ class NavigationTitle extends Backbone.Controller {
     return config;
   }
 
-  onPostRender(view) {
+  onContentObjectPostRender(view) {
     if (this.titleView) this.titleView.remove();
 
     const config = view.model.get('_navigationTitle');
     if (
-      (!NavigationTitle.courseConfig || !NavigationTitle.courseConfig._isEnabled) ||
+      (!NavigationTitle.courseConfig?._isEnabled) ||
       (config && (!config._isEnabled || config._isHiddenOnMenu))
     ) return;
 
