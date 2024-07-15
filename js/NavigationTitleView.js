@@ -21,7 +21,7 @@ class NavigationTitleView extends Backbone.View {
   }
 
   render() {
-    ReactDOM.render(<templates.navigationTitle {...NavigationTitleView.courseConfig} />, this.el);
+    ReactDOM.render(<templates.navigationTitle {...this.model.toJSON()} />, this.el);
   }
 }
 

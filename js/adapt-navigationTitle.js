@@ -10,7 +10,12 @@ class NavigationTitle extends Backbone.Controller {
   }
 
   static get courseConfig() {
-    return Adapt.course.get('_navigationTitle');
+    const config = Adapt.course.get('_navigationTitle');
+    const title = (config._useCourseTitle)
+      ? Adapt.course.get('title')
+      : Adapt.course.get('_navigationTitle').title;
+    config.title = title;
+    return config;
   }
 
   onPostRender(view) {
@@ -22,7 +27,7 @@ class NavigationTitle extends Backbone.Controller {
       (config && (!config._isEnabled || config._isHiddenOnMenu))
     ) return;
 
-    const model = new Backbone.Model(config);
+    const model = new Backbone.Model(NavigationTitle.courseConfig);
     this.titleView = new NavigationTitleView({ model });
 
     // If 'navigation logo' is present in the navigation, insert title after it.
