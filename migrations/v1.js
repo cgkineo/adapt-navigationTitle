@@ -1,4 +1,4 @@
-import { describe, whereFromPlugin, mutateContent, checkContent, updatePlugin, getCourse } from 'adapt-migrations';
+import { describe, whereFromPlugin, mutateContent, checkContent, updatePlugin, getCourse, testStopWhere, testSuccessWhere } from 'adapt-migrations';
 import _ from 'lodash';
 
 describe('Navigation Title - v1.0.0 to v1.0.1', async () => {
@@ -46,6 +46,26 @@ describe('Navigation Title - v1.0.0 to v1.0.1', async () => {
     return true;
   });
   updatePlugin('Navigation Title - update to v1.0.1', { name: 'adapt-navigationTitle', version: '1.0.1', framework: '>=5.0.0' });
+
+  testSuccessWhere('navigation title with empty course', {
+    fromPlugins: [{ name: 'adapt-navigationTitle', version: '1.0.0' }],
+    content: [
+      { _id: 'c-100', _component: 'mcq' },
+      { _type: 'course' }
+    ]
+  });
+
+  testSuccessWhere('navigation title with empty course config', {
+    fromPlugins: [{ name: 'adapt-navigationTitle', version: '1.0.0' }],
+    content: [
+      { _id: 'c-100', _component: 'mcq' },
+      { _type: 'course', _navigationTitle: {} }
+    ]
+  });
+
+  testStopWhere('incorrect version', {
+    fromPlugins: [{ name: 'adapt-navigationTitle', version: '1.0.1' }]
+  });
 });
 
 describe('Navigation Title - v1.0.1 to v1.0.3', async () => {
@@ -74,4 +94,24 @@ describe('Navigation Title - v1.0.1 to v1.0.3', async () => {
     return true;
   });
   updatePlugin('Navigation Title - update to v1.0.3', { name: 'adapt-navigationTitle', version: '1.0.3', framework: '>=5.0.0' });
+
+  testSuccessWhere('navigation title with empty course', {
+    fromPlugins: [{ name: 'adapt-navigationTitle', version: '1.0.1' }],
+    content: [
+      { _id: 'c-100', _component: 'mcq' },
+      { _type: 'course' }
+    ]
+  });
+
+  testSuccessWhere('navigation title with empty course config', {
+    fromPlugins: [{ name: 'adapt-navigationTitle', version: '1.0.1' }],
+    content: [
+      { _id: 'c-100', _component: 'mcq' },
+      { _type: 'course', _navigationTitle: {} }
+    ]
+  });
+
+  testStopWhere('incorrect version', {
+    fromPlugins: [{ name: 'adapt-navigationTitle', version: '1.0.3' }]
+  });
 });
