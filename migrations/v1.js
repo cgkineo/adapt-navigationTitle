@@ -79,9 +79,9 @@ describe('Navigation Title - v1.0.1 to v1.0.3', async () => {
   });
   mutateContent('Navigation Title - add _navigationTitle._isEnabled to contentObjects', async (content) => {
     contentObjects = content.filter(({ _type }) => _type === 'page');
-    contentObjects.forEach(contentObject => {
-      _.set(contentObject, '_navigationTitle._isEnabled', true);
-    });
+    contentObjects.forEach(contentObject =>
+      _.set(contentObject, '_navigationTitle._isEnabled', true)
+    );
     return true;
   });
   checkContent('Navigation Title - check course _navigationTitle._isHiddenOnMenu', async content => {
