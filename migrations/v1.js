@@ -45,7 +45,7 @@ describe('Navigation Title - v1.0.0 to v1.0.1', async () => {
     if (courseNavTitle._useCourseTitle !== false) throw new Error('Navigation Title - course _navigationTitle._useCourseTitle invalid');
     return true;
   });
-  updatePlugin('Navigation Title - update to v1.0.1', { name: 'adapt-navigationTitle', version: '1.0.1', framework: '>=5.0.0' });
+  updatePlugin('Navigation Title - update to v1.0.1', { name: 'adapt-navigationTitle', version: '1.0.1', framework: '>=5.24.5' });
 
   testSuccessWhere('navigation title with empty course', {
     fromPlugins: [{ name: 'adapt-navigationTitle', version: '1.0.0' }],
@@ -73,6 +73,7 @@ describe('Navigation Title - v1.0.1 to v1.0.3', async () => {
   whereFromPlugin('Navigation Title - from v1.0.1', { name: 'adapt-navigationTitle', version: '<1.0.3' });
   mutateContent('Navigation Title - add course _navigationTitle._isHiddenOnMenu', async (content) => {
     course = getCourse();
+    if (!_.has(course, '_navigationTitle')) _.set(course, '_navigationTitle', {});
     courseNavTitle = course._navigationTitle;
     courseNavTitle._isHiddenOnMenu = false;
     return true;
@@ -93,21 +94,22 @@ describe('Navigation Title - v1.0.1 to v1.0.3', async () => {
     if (!isValid) throw new Error('Navigation Title - _navigationTitle._isEnabled on contentObjects invalid');
     return true;
   });
-  updatePlugin('Navigation Title - update to v1.0.3', { name: 'adapt-navigationTitle', version: '1.0.3', framework: '>=5.0.0' });
+  updatePlugin('Navigation Title - update to v1.0.3', { name: 'adapt-navigationTitle', version: '1.0.3', framework: '>=5.35.3' });
+
+  testSuccessWhere('navigation title with course and pages', {
+    fromPlugins: [{ name: 'adapt-navigationTitle', version: '1.0.1' }],
+    content: [
+      { _type: 'course', _navigationTitle: {} },
+      { _type: 'page', _id: 'co-05' },
+      { _type: 'page', _id: 'co-10', _navigationTitle: {} }
+    ]
+  });
 
   testSuccessWhere('navigation title with empty course', {
     fromPlugins: [{ name: 'adapt-navigationTitle', version: '1.0.1' }],
     content: [
-      { _id: 'c-100', _component: 'mcq' },
-      { _type: 'course' }
-    ]
-  });
-
-  testSuccessWhere('navigation title with empty course config', {
-    fromPlugins: [{ name: 'adapt-navigationTitle', version: '1.0.1' }],
-    content: [
-      { _id: 'c-100', _component: 'mcq' },
-      { _type: 'course', _navigationTitle: {} }
+      { _type: 'course' },
+      { _type: 'page', _id: 'co-05' }
     ]
   });
 
