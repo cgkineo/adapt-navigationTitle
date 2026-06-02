@@ -30,9 +30,10 @@ The following attributes are set within *contentObjects.json*.
 
 >**\_isEnabled** (boolean): When `false`, hides the title on a specific page or sub menu. Default: `true`
 
-----------------------------
-**Author / maintainer:** CGKineo<br>
+---
+
+**Author / maintainer:** Mindtools Kineo<br>
 **AAT support:** Yes<br>
-**Accessibility support:** WAI AA<br>
+**Accessibility support:** WAI AA<br> 
 **RTL support:** Yes<br>
-**Cross-platform coverage:** Chrome, Chrome for Android, Firefox (ESR + latest version), Edge, Safari 14 for macOS/iOS/iPadOS, Opera<br>
+**Cross-platform coverage:** Chrome, Chrome for Android, Firefox (ESR + latest version), Edge, Safari for macOS/iOS/iPadOS, Opera<br>
